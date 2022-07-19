@@ -44,7 +44,7 @@ With this opportunity in mind, our creation of Tyzen and the TZN Platform appear
 &nbsp; | &nbsp;
 ------ | ------
 **Twitter:** | https://twitter.com/TyzenIo
-**Discord:** | https://discord.gg/QbzPTQdaqz
+**Discord:** | https://discord.gg/tyzen
 **Telegram:** | https://t.me/tyzeninfo
 **Youtube:** | https://www.youtube.com/channel/UCgTpiS9mqkkRqrT_iBnQ17w
 
