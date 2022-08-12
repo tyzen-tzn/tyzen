@@ -71,13 +71,13 @@ void NotifyWalletLoaded(WalletContext& context, const std::shared_ptr<CWallet>& 
 std::unique_ptr<WalletDatabase> MakeWalletDatabase(const std::string& name, const DatabaseOptions& options, DatabaseStatus& status, bilingual_str& error);
 
 //! -paytxfee default
-constexpr CAmount DEFAULT_PAY_TX_FEE = 10000;
+constexpr CAmount DEFAULT_PAY_TX_FEE = 0;
 //! -fallbackfee default
-static const CAmount DEFAULT_FALLBACK_FEE = 10000;
+static const CAmount DEFAULT_FALLBACK_FEE = 0;
 //! -discardfee default
-static const CAmount DEFAULT_DISCARD_FEE = 10000;
+static const CAmount DEFAULT_DISCARD_FEE = 0;
 //! -mintxfee default
-static const CAmount DEFAULT_TRANSACTION_MINFEE = 1000;
+static const CAmount DEFAULT_TRANSACTION_MINFEE = 0;
 //! -consolidatefeerate default
 static const CAmount DEFAULT_CONSOLIDATE_FEERATE{10000}; // 10 sat/vbyte
 /**
