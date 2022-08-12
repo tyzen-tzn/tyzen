@@ -25,8 +25,8 @@ PATTERN_IPV4 = re.compile(r"^((\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})):(\d+)$
 PATTERN_IPV6 = re.compile(r"^\[([0-9a-z:]+)\]:(\d+)$")
 PATTERN_ONION = re.compile(r"^([a-z2-7]{56}\.onion):(\d+)$")
 PATTERN_AGENT = re.compile(
-    r"^/Satoshi:("
-    r"0.14.(0|1|2|3|99)|"
+    r"^/Tyzen:("
+    r"1.0.(0|1|2|3|99)|"
     r"0.15.(0|1|2|99)|"
     r"0.16.(0|1|2|3|99)|"
     r"0.17.(0|0.1|1|2|99)|"
@@ -35,7 +35,7 @@ PATTERN_AGENT = re.compile(
     r"0.20.(0|1|2|99)|"
     r"0.21.(0|1|2|99)|"
     r"22.(0|99)|"
-    r"23.99"
+    r"23.100"
     r")")
 
 def parseline(line: str) -> Union[dict, None]:
