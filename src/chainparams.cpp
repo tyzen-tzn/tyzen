@@ -69,7 +69,7 @@ public:
         consensus.script_flag_exceptions.emplace( // Taproot exception
             uint256S("0x00"), SCRIPT_VERIFY_P2SH | SCRIPT_VERIFY_WITNESS);
         consensus.BIP34Height = 42470;
-        consensus.BIP34Hash = uint256();
+        consensus.BIP34Hash = uint256("0x4f7acb97a3bfff065721260e90cfcc5e48c5009257f07bc4fdf5e00e7ea28c6f");
         consensus.BIP65Height = 42470;
         consensus.BIP66Height = 42470;
         consensus.CSVHeight = 0;
