@@ -1,0 +1,93 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/tyzen/.tyzen" ]; then
+	TYZEND_DEFAULT_DATADIR="/var/lib/tyzen/.tyzen"
+else
+	TYZEND_DEFAULT_DATADIR="/var/lib/tyzend"
+fi
+
+TYZEND_CONFIGFILE=${TYZEND_CONFIGFILE:-/etc/tyzen/tyzen.conf}
+TYZEND_PIDDIR=${TYZEND_PIDDIR:-/var/run/tyzend}
+TYZEND_PIDFILE=${TYZEND_PIDFILE:-${TYZEND_PIDDIR}/tyzend.pid}
+TYZEND_DATADIR=${TYZEND_DATADIR:-${TYZEND_DEFAULT_DATADIR}}
+TYZEND_USER=${TYZEND_USER:-${TYZEN_USER:-tyzen}}
+TYZEND_GROUP=${TYZEND_GROUP:-tyzen}
+TYZEND_BIN=${TYZEND_BIN:-/usr/bin/tyzend}
+TYZEND_NICE=${TYZEND_NICE:-${NICELEVEL:-0}}
+TYZEND_OPTS="${TYZEND_OPTS:-${TYZEN_OPTS}}"
+
+name="Tyzen Core Daemon"
+description="Tyzen cryptocurrency P2P network daemon"
+
+command="/usr/bin/tyzend"
+command_args="-pid=\"${TYZEND_PIDFILE}\" \
+		-conf=\"${TYZEND_CONFIGFILE}\" \
+		-datadir=\"${TYZEND_DATADIR}\" \
+		-daemon \
+		${TYZEND_OPTS}"
+
+required_files="${TYZEND_CONFIGFILE}"
+start_stop_daemon_args="-u ${TYZEND_USER} \
+			-N ${TYZEND_NICE} -w 2000"
+pidfile="${TYZEND_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${TYZEND_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${TYZEND_USER}:${TYZEND_GROUP}" \
+	"${TYZEND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${TYZEND_USER}:${TYZEND_GROUP}" \
+	"${TYZEND_PIDDIR}"
+
+	checkpath -f \
+	-o "${TYZEND_USER}:${TYZEND_GROUP}" \
+	-m 0660 \
+	"${TYZEND_CONFIGFILE}"
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if grep -qs '^rpcuser=' "${TYZEND_CONFIGFILE}" && \
+		! grep -qs '^rpcpassword=' "${TYZEND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run tyzend."
+		eerror "The setting must appear in ${TYZEND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Tyzen Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}
