@@ -1,0 +1,33 @@
+# /etc/conf.d/tyzend: config file for /etc/init.d/tyzend
+
+# Config file location
+#TYZEND_CONFIGFILE="/etc/tyzen/tyzen.conf"
+
+# What directory to write pidfile to?  (created and owned by $TYZEND_USER)
+#TYZEND_PIDDIR="/var/run/tyzend"
+
+# What filename to give the pidfile
+#TYZEND_PIDFILE="${TYZEND_PIDDIR}/tyzend.pid"
+
+# Where to write tyzend data (be mindful that the blockchain is large)
+#TYZEND_DATADIR="/var/lib/tyzend"
+
+# User and group to own tyzend process
+#TYZEND_USER="tyzen"
+#TYZEND_GROUP="tyzen"
+
+# Path to tyzend executable
+#TYZEND_BIN="/usr/bin/tyzend"
+
+# Nice value to run tyzend under
+#TYZEND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#TYZEND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for tyzend to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+TYZEND_SIGTERM_TIMEOUT=600
