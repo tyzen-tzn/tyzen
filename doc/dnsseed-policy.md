@@ -44,11 +44,11 @@ related to the DNS seed operation.
 If these expectations cannot be satisfied the operator should
 discontinue providing services and contact the active Tyzen
 Core development team as well as posting on
-[Tyzen-dev](https://groups.google.com/forum/#!forum/Tyzen-dev).
+[tyzen-dev](https://lists.linuxfoundation.org/mailman/listinfo/tyzen-dev).
 
 Behavior outside of these expectations may be reasonable in some
 situations but should be discussed in public in advance.
 
 See also
 ----------
-- [Tyzen-seeder](https://github.com/tyzen-tzn/tyzen-seeder) is a reference implementation of a DNS seed.
+- [tyzen-seeder](https://github.com/sipa/tyzen-seeder) is a reference implementation of a DNS seed.

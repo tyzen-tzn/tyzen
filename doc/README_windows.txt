@@ -1,5 +1,5 @@
-Tyzen Core 1.0
-=====================
+Tyzen Core
+=============
 
 Intro
 -----
@@ -18,6 +18,6 @@ However, it downloads and stores the entire history of Tyzen transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
 
-See the Tyzen wiki at:
-  https://wiki.tyzen.io/
+See the tyzen wiki at:
+  https://en.tyzen.it/wiki/Main_Page
 for more help and information.

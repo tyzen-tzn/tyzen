@@ -1,10 +1,11 @@
-// Copyright (c) 2009-2014 The Bitcoin Core developers
+// Copyright (c) 2009-2018 The Bitcoin and Tyzen Core Authors
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <list>
 #include <locale>
 #include <stdexcept>
+#include <string>
 
 namespace
 {
@@ -38,7 +39,7 @@ bool sanity_test_list(unsigned int size)
     return true;
 }
 
-} // anon namespace
+} // namespace
 
 // trigger: string::at(x) on an empty string to trigger __throw_out_of_range_fmt.
 // test: force std::string to throw an out_of_range exception. Verify that
