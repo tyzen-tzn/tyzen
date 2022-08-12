@@ -3,7 +3,7 @@
 
 Tyzen Core version 23.0 is now available from:
 
-  <https://tyzencore.org/bin/tyzen-core-23.0/>
+  <https://github.com/tyzen-tzn/tyzen/releases/>
 
 This release includes new features, various bug fixes and performance
 improvements, as well as updated translations.
