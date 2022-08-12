@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[tyzen.qt-translation-023x]
+file_filter = src/qt/locale/tyzen_<lang>.xlf
+source_file = src/qt/locale/tyzen_en.xlf
+source_lang = en
