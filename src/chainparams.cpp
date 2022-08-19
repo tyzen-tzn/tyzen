@@ -121,6 +121,14 @@ public:
         // release ASAP to avoid it where possible.
 
         vSeeds.emplace_back("node1.tyzen.io.");
+		vSeeds.emplace_back("node2.tyzen.io.");
+		vSeeds.emplace_back("node3.tyzen.io.");
+		vSeeds.emplace_back("node4.tyzen.io.");
+		vSeeds.emplace_back("node6.tyzen.io.");
+		vSeeds.emplace_back("node7.tyzen.io.");
+		vSeeds.emplace_back("node8.tyzen.io.");
+		vSeeds.emplace_back("node9.tyzen.io.");
+		vSeeds.emplace_back("node10.tyzen.io.");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,66);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,128);
