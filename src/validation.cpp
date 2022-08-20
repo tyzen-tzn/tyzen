@@ -3403,7 +3403,7 @@ void UpdateUncommittedBlockStructures(CBlock& block, const CBlockIndex* pindexPr
 {
     int commitpos = GetWitnessCommitmentIndex(block);
     static const std::vector<unsigned char> nonce(32, 0x00);
-    if (commitpos != -1 && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_SEGWIT) && !block.vtx[0]->HasWitness()) {
+    if (commitpos != NO_WITNESS_COMMITMENT && DeploymentActiveAfter(pindexPrev, consensusParams, Consensus::DEPLOYMENT_SEGWIT) && !block.vtx[0]->HasWitness()) {
         CMutableTransaction tx(*block.vtx[0]);
         tx.vin[0].scriptWitness.stack.resize(1);
         tx.vin[0].scriptWitness.stack[0] = nonce;
@@ -3416,12 +3416,12 @@ std::vector<unsigned char> GenerateCoinbaseCommitment(CBlock& block, const CBloc
     std::vector<unsigned char> commitment;
     int commitpos = GetWitnessCommitmentIndex(block);
     std::vector<unsigned char> ret(32, 0x00);
-    if (commitpos == -1) {
+    if (commitpos == NO_WITNESS_COMMITMENT) {
         uint256 witnessroot = BlockWitnessMerkleRoot(block, nullptr);
-        CHash256().Write(witnessroot.begin(),32).Write(&ret[0],32).Finalize(witnessroot.begin());
+        CHash256().Write(witnessroot).Write(ret).Finalize(witnessroot);
         CTxOut out;
         out.nValue = 0;
-        out.scriptPubKey.resize(38);
+        out.scriptPubKey.resize(MINIMUM_WITNESS_COMMITMENT);
         out.scriptPubKey[0] = OP_RETURN;
         out.scriptPubKey[1] = 0x24;
         out.scriptPubKey[2] = 0xaa;
