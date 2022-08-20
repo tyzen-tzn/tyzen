@@ -73,7 +73,7 @@ public:
         consensus.BIP65Height = 42470;
         consensus.BIP66Height = 42470;
         consensus.CSVHeight = 0;
-        consensus.SegwitHeight = 50000;
+        consensus.SegwitHeight = 5000000;
         consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
@@ -140,7 +140,7 @@ public:
         checkpointData = {
             {
                 { 0, uint256S("0x000000fd190d1f1f7685c1873e51cd8f1a543d9f7af17a7fe9a6fa90321b80f8")},
-                { 42370, uint256S("0x1da60e5b6969309cb64297f332af08543364ada0269d237ba25026a907c582b1")},
+                { 50324, uint256S("0xd489e209c8a7af85b7c4637e8e79510cbefb6d3abedd0f0b79087c73ebffc499")},
 
             }
         };
