@@ -73,7 +73,7 @@ public:
         consensus.BIP65Height = 42470;
         consensus.BIP66Height = 42470;
         consensus.CSVHeight = 0;
-        consensus.SegwitHeight = 5000000;
+        consensus.SegwitHeight = 100000;
         consensus.MinBIP9WarningHeight = 0; // segwit activation height + miner confirmation window
         consensus.powLimit = uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
@@ -121,6 +121,15 @@ public:
         // release ASAP to avoid it where possible.
 
         vSeeds.emplace_back("node1.tyzen.io.");
+        vSeeds.emplace_back("node2.tyzen.io.");
+        vSeeds.emplace_back("node3.tyzen.io.");
+        vSeeds.emplace_back("node4.tyzen.io.");
+        vSeeds.emplace_back("node5.tyzen.io.");
+        vSeeds.emplace_back("node6.tyzen.io.");
+        vSeeds.emplace_back("node7.tyzen.io.");
+        vSeeds.emplace_back("node8.tyzen.io.");
+        vSeeds.emplace_back("node9.tyzen.io.");
+        vSeeds.emplace_back("node10.tyzen.io.");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,66);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,128);
