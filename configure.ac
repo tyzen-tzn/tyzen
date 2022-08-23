@@ -1,7 +1,7 @@
 AC_PREREQ([2.69])
 define(_CLIENT_VERSION_MAJOR, 23)
 define(_CLIENT_VERSION_MINOR, 100)
-define(_CLIENT_VERSION_BUILD, 0)
+define(_CLIENT_VERSION_BUILD, 1)
 define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, false)
 define(_COPYRIGHT_YEAR, 2022)
@@ -160,7 +160,7 @@ AC_ARG_ENABLE([upnp-default],
   [AS_HELP_STRING([--enable-upnp-default],
   [if UPNP is enabled, turn it on at startup (default is no)])],
   [use_upnp_default=$enableval],
-  [use_upnp_default=yes])
+  [use_upnp_default=no])
 
 AC_ARG_WITH([natpmp],
             [AS_HELP_STRING([--with-natpmp],
