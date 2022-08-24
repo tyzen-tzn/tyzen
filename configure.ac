@@ -142,7 +142,7 @@ AC_ARG_WITH([bdb],
   [AS_HELP_STRING([--without-bdb],
   [disable bdb wallet support (default is enabled if wallet is enabled)])],
   [use_bdb=$withval],
-  [use_bdb=auto])
+  [use_bdb=yes])
 
 AC_ARG_ENABLE([usdt],
   [AS_HELP_STRING([--enable-usdt],
