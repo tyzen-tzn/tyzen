@@ -136,7 +136,7 @@ AC_ARG_WITH([sqlite],
   [AS_HELP_STRING([--with-sqlite=yes|no|auto],
   [enable sqlite wallet support (default: auto, i.e., enabled if wallet is enabled and sqlite is found)])],
   [use_sqlite=$withval],
-  [use_sqlite=no])
+  [use_sqlite=yes])
 
 AC_ARG_WITH([bdb],
   [AS_HELP_STRING([--without-bdb],
