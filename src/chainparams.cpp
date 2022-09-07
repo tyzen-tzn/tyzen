@@ -130,6 +130,7 @@ public:
         vSeeds.emplace_back("node8.tyzen.io.");
         vSeeds.emplace_back("node9.tyzen.io.");
         vSeeds.emplace_back("node10.tyzen.io.");
+        vSeeds.emplace_back("pool.cryptoverse.eu.");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,66);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,128);
